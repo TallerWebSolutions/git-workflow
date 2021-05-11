@@ -17,9 +17,8 @@
 3. [Workflow](#workflow)
     1. [Atualizando a branch main](#att-branch-main)
     2. [Criar uma nova branch](#new-branch)
-4. [Passos após você terminar sua história](#finish-dev)
 5. [Em desenvolvimento](#dev)
-    1. [Passos após você terminar sua história](#finish-dev)
+    1. [Passos após você terminar o desenvolvimento da sua história](#finish-dev)
 6. [Enviando seu código para Stage](#stage)
     1. [Primeira forma: rebase e Merge](#rebase-merge-stage)
     2. [Segunda forma: reset hard e rebase](#reset-rebase-stage)
@@ -43,9 +42,7 @@ Tudo configurado e organizado? Bora entender nosso fluxo e nossos padrões!
 
 > Em cada passo descrito nesse onboarding, o mais importante é você entender o que está fazendo e o motivo de fazer ele. Se algo não estiver claro, crie uma issue, abra um PR e nos ajude a melhorar o onboarding para as pessoas que entrarão depois de você.
 
-<a name="branch-name-pattern"></a>
-
-## Padrão do nome das branches
+## Padrão do nome das branches <a name="branch-name-pattern"></a>
 
 Tanto o nome das branches quanto as mensagens de commit deverão ser em inglês.
 Nossas branches sempre iniciarão com os tipos de histórias descritos abaixo.
@@ -76,9 +73,7 @@ Para criar uma branch, com a branch `main` atualizada com o origin do projeto, u
 
 `git checkout -b fs/${sigla do projeto}-${número da história}--${descrição-curta}`
 
-<a name="branch-name-pattern"></a>
-
-## Padrão das mensagens de commit
+## Padrão das mensagens de commit <a name="branch-name-pattern"></a>
 
 Nós presamos por um changelog fácil de ler e entender o que aconteceu no passado, então hoje adotamos algumas regrinhas que nos ajuda a manter isso, e nas nossas pesquisas encontramos o padrão de Semantic Commit Messages proposto pelo [Karma](http://karma-runner.github.io/4.0/dev/git-commit-msg.html) e também vimos esse [artigo](https://sparkbox.com/foundry/semantic_commit_messages) que inspirou muito nossos padrões e também é uma das nossas bases hoje.
 
@@ -103,13 +98,11 @@ Exemplo e explicação é tudo nessa vida, né? Aqui embaixo você terá mais de
 
 <br>Caso você queira já deixar configurado na sua máquina, existe a [git-semantic-commits](https://github.com/fteem/git-semantic-commits) que já faz a magia da mensagem do commit pra ti. Essa lib é escolha sua usar ou não, o importante é você seguir os nossos padrões.
 
-<a name="workflow"></a>
+## Workflow <a name="workflow"></a>
 
-## Workflow
 
-<a name="att-branch-main"></a>
 
-### Atualizando a branch main
+### Atualizando a branch main <a name="att-branch-main"></a>
 
 A _fonte da verdade_ é a branch `main`. Todas as branchs devem ser criadas a partir da `main` e deverão ser mergeadas na `main` através de um pull request.
 
@@ -126,18 +119,14 @@ git reset --hard origin/main
 
 Se voce estiver se perguntando "o que é essa porra de `origin` que tanto falam aqui?", o origin é um termo default que o git usa para se referir ao repositório(`remote`) de onde você clonou o projeto(seja ele github, gitlab ou bitbucket). Você pode mudar esse nome default, mas não há necessidade. Você pode acessar a [documentação oficial ](https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes) para ter mais detalhes.
 
-<a name="new-branch"></a>
-
-### Criar uma nova branch
+### Criar uma nova branch <a name="new-branch"></a>
 
 Atualize sua branch `main` conforme explicamos no ítem acima e execute o comando `git checkout -b` + o nome da branch(com o padrão explicado na sessão Padrão do nome das branches)
 
 ```
 git checkout -b ${tipo da branch}/${sigla da história-número da história}--${descrição da issue ou história}
 ```
-<a name="dev"></a>
-
-### Em desenvolvimento
+### Em desenvolvimento <a name="dev"></a>
 
 > ⚠️ INFORMAÇÃO IMPORTANTE: a branch que você estiver trabalhando deve SEMPRE estar atualizada com a `main`, para isso usamos o rebase. É sempre bom você ir fazendo rebase durante durante o desenvolvimento, porque se você deixar pra hora de entregar, existe a possibilidade de você passar muito tempo resolvendo conflito.
 
@@ -150,9 +139,8 @@ git rebase origin/main
 
 Fique atento porque você não vai conseguir fazer rebase se não tiver commitado ou usado um `git stash` no que você estava trabalhando.
 
-<a name="finish-dev"></a>
 
-_**Terminou sua história?**_
+_**Terminou sua história?**_ <a name="finish-dev"></a>
 
 Abra um pull request para a `main` e solicite o code review de duas pessoas do time.
 
@@ -163,16 +151,12 @@ Abra um pull request para a `main` e solicite o code review de duas pessoas do t
 
 Terminou sua história, code review feito, alterações ok é hora de enviar sua história para `stage`.
 
-<a name="stage"></a>
-
-### Enviando seu código para Stage
+### Enviando seu código para Stage <a name="stage"></a> 
 
 Nessa etapa temos duas formas de fazer a mesma coisa:
 
 
-<a name="rebase-merge-stage"></a>
-
-**Primeira forma: rebase e Merge**  
+**Primeira forma: rebase e Merge**  <a name="rebase-merge-stage"></a>
 Crie uma branch auxiliar para poder fazer rebase com `stage` nela. Você sairá da sua branch atual:
 
 ```
@@ -188,9 +172,7 @@ git reset --hard origin/stage
 git merge fs/my-branch--STG
 ```
 
-<a name="reset-rebase-stage"></a>
-
-**Segunda forma: reset hard e rebase**  
+**Segunda forma: reset hard e rebase**  <a name="reset-rebase-stage"></a>
 
 Você pode simplesmente fazer um hard reset em stage com sua branch e depois fazer rebase com o origin stage para não perder nenhum commit que já estava lá.
 
@@ -212,8 +194,7 @@ Antes do push, você sempre vai se fazer as seguintes perguntas: meu merge foi f
 git push origin stage
 ```
 
-### Enviando seu código para a Main 
-<a name="main"></a>
+### Enviando seu código para a Main <a name="main"></a>
 
 História homologada, tudo certo e é hora de mandar pra main! Como falamos lá em cima, a ideia é que tua branch esteja sempre atualizada com o origin/main e também temos duas formas de fazer a mesma coisa 
 
@@ -233,9 +214,7 @@ se ela já estiver atualizada, você pode ir direto para o proximo passo, caso e
 git push origin fs/my-branch
 ```
 
-<a name="rebase-merge-main"></a>
-
-**Primeira forma: rebase e Merge**  
+**Primeira forma: rebase e Merge**  <a name="rebase-merge-main"></a>
 
 2 - Vai pra main e atualiza main com a origin
 
@@ -256,9 +235,7 @@ git merge my-branch
 git push origin main
 ```
 
-<a name="reset-rebase-main"></a>
-
-**Segunda forma: reset hard e rebase**  
+**Segunda forma: reset hard e rebase**  <a name="reset-rebase-main"></a>
 
 Assim como para enviar para stage, você pode fazer um hard reset em stage com sua branch e depois fazer rebase com o origin stage para não perder nenhum commit que já estava lá.
 
