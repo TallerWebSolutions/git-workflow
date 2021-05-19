@@ -36,6 +36,8 @@
   <img align="center" width="530" height="232" src="https://i.imgur.com/4U2UzwM.png" alt="Dúvida sobre a frequência de uso do tig"></dd><br>
   <dd>2. Configure seu email da taller no seu github, caso você for usar seu perfil pessoal. Tem um tutorial bacana <a href="https://docs.github.com/pt/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#">nesse link.</a></dd><br>
   <dd>3. Configure a autenticação de dois fatores na sua conta, a gente preza por segurança. Tem um tutorial bacana <a href="https://docs.github.com/pt/github/authenticating-to-github/configuring-two-factor-authentication">nesse link</a></dd>
+  <br>
+  <dd>4. Configure a conexão com o github por ssh, uma vez ativa a autenticação por dois fatores você não conseguirá realizar clone dos repositórios por https. Tem um tutorial bacana para gerar a chave ssh <a href="https://docs.github.com/pt/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">nesse link</a> e um outro tutorial supimpa para vincular a sua chave ssh com sua conta do github <a href="https://docs.github.com/pt/github/authenticating-to-github/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account">nesse link</a></dd>
 </dl>
 
 Tudo configurado e organizado? Bora entender nosso fluxo e nossos padrões!
