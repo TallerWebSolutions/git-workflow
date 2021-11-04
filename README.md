@@ -252,3 +252,6 @@ git reset --hard fs/my-branch
 git rebase origin/main
 git push origin main
 ```
+
+## Importante: não fique com o código só em sua máquina
+É uma grande fragilidade quando ficamos com o código somente em nossas máquinas sendo que temos todos os recursos na nuvem para que o mesmo seja compartilhado. Se não deu tempo de organizar seus commits, é perfeitamente normal mandar um commit tendo "WIP" como mensagem, e os git hooks podem ser contornados com a flag `--no-verify`. No outro dia, basta resetar esse commit e seguir o trabalho normalmente (será necesário fazer um push force depois disso). **Só faça isso no seu branch, nunca em branches de integração**.
